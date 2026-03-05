@@ -1,9 +1,9 @@
-import { CitiesCard } from "../../components/cities-card/cities-card";
+import { CitiesCard } from '../../components/cities-card/cities-card';
 
 type MainPageProps = {
   cityOffersCount: number;
 }
-export function MainPage({cityOffersCount}: MainPageProps):JSX.Element{
+export function MainPage({cityOffersCount}:MainPageProps):JSX.Element{
   return(
     <div className="page page--gray page--main">
       <header className="header">
@@ -108,5 +108,5 @@ export function MainPage({cityOffersCount}: MainPageProps):JSX.Element{
         </div>
       </main>
     </div>
-  )
+  );
 }
