@@ -11,6 +11,10 @@ export function CitiesCard({offer, onMouseEnter, onMouseLeave}: PlaceCardProps):
   return (
     <article className="cities__card place-card" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div className="cities__image-wrapper place-card__image-wrapper">
+        {offer.isPremium &&
+          <div className="place-card__mark">
+            <span>Premium</span>
+          </div>}
         <a href="#">
           <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt={`${offer.city}`}/>
         </a>
