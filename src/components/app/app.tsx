@@ -6,18 +6,20 @@ import { FavoritesPage } from '../../pages/favorites-page/favorites-page';
 import { LoginPage } from '../../pages/login-page/login-page';
 import { OfferPage } from '../../pages/offer-page/offer-page';
 import { PrivateRoute } from '../private-route/private-route';
+import { Offers } from '../../mocks/types';
 
 type AppProps = {
   cityOffersCount: number;
+  offers: Offers
 }
 
-export function App({ cityOffersCount }: AppProps): JSX.Element {
+export function App({ cityOffersCount, offers }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<MainPage cityOffersCount={cityOffersCount} />}
+          element={<MainPage offers={offers} cityOffersCount={cityOffersCount} />}
         />
         <Route
           path={AppRoute.Favorites}

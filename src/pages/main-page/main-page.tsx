@@ -1,10 +1,12 @@
-import { CitiesCard } from '../../components/cities-card/cities-card';
+import { CitiesList } from '../../components/cities-list/cities-list';
+import { Offers } from '../../mocks/types';
 
 type MainPageProps = {
   cityOffersCount: number;
+  offers: Offers,
 }
 
-export function MainPage({cityOffersCount}:MainPageProps):JSX.Element{
+export function MainPage({offers, cityOffersCount}: MainPageProps): JSX.Element{
   return(
     <div className="page page--gray page--main">
       <header className="header">
@@ -94,13 +96,7 @@ export function MainPage({cityOffersCount}:MainPageProps):JSX.Element{
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <CitiesCard/>
-                <CitiesCard/>
-                <CitiesCard/>
-                <CitiesCard/>
-                <CitiesCard/>
-              </div>
+              <CitiesList offers={offers}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
