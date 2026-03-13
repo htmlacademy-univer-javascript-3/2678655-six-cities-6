@@ -3,7 +3,7 @@ import { Offers } from '../../mocks/types';
 
 type MainPageProps = {
   cityOffersCount: number;
-  offers: Offers,
+  offers: Offers;
 }
 
 export function MainPage({offers, cityOffersCount}: MainPageProps): JSX.Element{

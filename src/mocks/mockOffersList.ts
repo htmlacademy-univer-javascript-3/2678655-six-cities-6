@@ -1,14 +1,14 @@
-import { Offers } from "./types";
+import { Offers } from './types';
 
 export const mockOffersList: Offers = [
   {
-    id: "67318f9c-706d-44e2-9b27-0993a8306c51",
-    title: "Canal View Prinsengracht",
-    type: "hotel",
+    id: '67318f9c-706d-44e2-9b27-0993a8306c51',
+    title: 'Canal View Prinsengracht',
+    type: 'hotel',
     price: 478,
-    previewImage: "https://14.design.htmlacademy.pro/static/hotel/8.jpg",
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
     city: {
-      name: "Paris",
+      name: 'Paris',
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
@@ -23,7 +23,7 @@ export const mockOffersList: Offers = [
     isFavorite: true,
     isPremium: true,
     rating: 1.5,
-    description: "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.",
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     bedrooms: 3,
     goods: ['Wi-Fi', 'Washing machine', 'Towels'],
     host: {
@@ -35,13 +35,13 @@ export const mockOffersList: Offers = [
     maxAdults: 4
   },
   {
-   id: "a9d98153-0052-4c29-8aa6-03461af8eb4f",
-    title: "The Joshua Tree House",
-    type: "room",
+    id: 'a9d98153-0052-4c29-8aa6-03461af8eb4f',
+    title: 'The Joshua Tree House',
+    type: 'room',
     price: 102,
-    previewImage: "https://14.design.htmlacademy.pro/static/hotel/15.jpg",
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     city: {
-      name: "Cologne",
+      name: 'Cologne',
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
@@ -56,7 +56,7 @@ export const mockOffersList: Offers = [
     isFavorite: false,
     isPremium: false,
     rating: 3.6,
-    description: "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.",
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     bedrooms: 3,
     goods: ['Laptop friendly workspace', 'Breakfast'],
     host: {
@@ -68,13 +68,13 @@ export const mockOffersList: Offers = [
     maxAdults: 4
   },
   {
-    id: "a9b2a105-17e1-4a35-80f7-0f8790c2566e",
-    title: "Loft Studio in the Central Area",
-    type: "hotel",
-    previewImage: "https://14.design.htmlacademy.pro/static/hotel/19.jpg",
+    id: 'a9b2a105-17e1-4a35-80f7-0f8790c2566e',
+    title: 'Loft Studio in the Central Area',
+    type: 'hotel',
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
     price: 187,
     city: {
-      name: "Amsterdam",
+      name: 'Amsterdam',
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
@@ -89,7 +89,7 @@ export const mockOffersList: Offers = [
     isFavorite: true,
     isPremium: true,
     rating: 1.6,
-    description: "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.",
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     bedrooms: 3,
     goods: ['Washer', 'Towels', 'Fridge'],
     host: {
@@ -101,13 +101,13 @@ export const mockOffersList: Offers = [
     maxAdults: 4
   },
   {
-    id: "15753ba9-61c2-4cd7-97bb-2e263d49c49b",
-    title: "Perfectly located Castro",
-    type: "hotel",
+    id: '15753ba9-61c2-4cd7-97bb-2e263d49c49b',
+    title: 'Perfectly located Castro',
+    type: 'hotel',
     price: 383,
-    previewImage: "https://14.design.htmlacademy.pro/static/hotel/11.jpg",
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/11.jpg',
     city: {
-      name: "Amsterdam",
+      name: 'Amsterdam',
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
@@ -122,7 +122,7 @@ export const mockOffersList: Offers = [
     isFavorite: true,
     isPremium: true,
     rating: 4.7,
-    description: "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.",
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     bedrooms: 3,
     goods: ['Washer', 'Towels', 'Fridge', 'Laptop friendly workspace', 'Breakfast'],
     host: {

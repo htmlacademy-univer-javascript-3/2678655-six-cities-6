@@ -1,7 +1,13 @@
 import {ChangeEvent, useState} from 'react';
 
+type FormData = {
+  rating: number;
+  review: string;
+};
+
+
 export function ReviewForm() {
-  const [formData, setFormData] = useState({rating: 0, review: ''});
+  const [formData, setFormData] = useState<FormData>({rating: 0, review: ''});
 
   const handleRatingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setFormData({

@@ -10,7 +10,7 @@ import { Offers } from '../../mocks/types';
 
 type AppProps = {
   cityOffersCount: number;
-  offers: Offers,
+  offers: Offers;
 }
 
 export function App({ cityOffersCount, offers }: AppProps): JSX.Element {

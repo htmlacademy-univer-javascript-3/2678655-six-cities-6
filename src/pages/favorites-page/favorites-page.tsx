@@ -1,6 +1,8 @@
 
-import { OffersList } from "../../components/offers-list/offers-list";
-import { Offers } from "../../mocks/types";
+import { Link } from 'react-router-dom';
+import { OffersList } from '../../components/offers-list/offers-list';
+import { Offers } from '../../mocks/types';
+import { AppRoute } from '../../const/const';
 
 type FavoritesPageProps = {
   offers: Offers;
@@ -8,7 +10,7 @@ type FavoritesPageProps = {
 
 export function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
   const favoriteOffers = offers.filter((offer) => offer.isFavorite);
-  const uniqueCities = Array.from(new Set(favoriteOffers.map((offer) => offer.city.name)))
+  const uniqueCities = Array.from(new Set(favoriteOffers.map((offer) => offer.city.name)));
 
   return (
     <div className="page">
@@ -16,7 +18,7 @@ export function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <Link to={AppRoute.Main} className="header__logo-link">
                 <img
                   className="header__logo"
                   src="img/logo.svg"
@@ -24,7 +26,7 @@ export function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
                   width={81}
                   height={41}
                 />
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -55,7 +57,7 @@ export function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
               {uniqueCities.map((city) => {
                 const currentCityOffers = favoriteOffers.filter((offer) => offer.city.name === city);
                 return (
-                  <li className="favorites__locations-items" >
+                  <li className="favorites__locations-items" key={city}>
                     <div className="favorites__locations locations locations--current">
                       <div className="locations__item">
                         <a className="locations__item-link" href="#">
