@@ -34,7 +34,7 @@ export function App({ cityOffersCount, offers }: AppProps): JSX.Element {
             }
           />
           <Route
-            path={`${AppRoute.Offer}/:offerId`}
+            path={AppRoute.Offer}
             element={<OfferPage offers = {offers} />}
           />
           <Route
