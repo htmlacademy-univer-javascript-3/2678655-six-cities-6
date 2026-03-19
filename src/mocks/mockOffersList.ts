@@ -8,7 +8,7 @@ export const mockOffersList: Offers = [
     price: 478,
     previewImage: 'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
     city: {
-      name: 'Paris',
+      name: 'Amsterdam',
       location: {
         latitude: 52.3909553943508,
         longitude: 4.85309666406198,
@@ -16,9 +16,9 @@ export const mockOffersList: Offers = [
       }
     },
     location: {
-        latitude: 52.3909553943508,
-        longitude: 4.85309666406198,
-        zoom: 13
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 13
     },
     isFavorite: true,
     isPremium: true,
@@ -41,7 +41,7 @@ export const mockOffersList: Offers = [
     price: 102,
     previewImage: 'https://14.design.htmlacademy.pro/static/hotel/15.jpg',
     city: {
-      name: 'Cologne',
+      name: 'Amsterdam',
       location: {
         latitude: 52.3609553943508,
         longitude: 4.85309666406198,

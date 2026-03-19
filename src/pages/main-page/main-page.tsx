@@ -1,5 +1,7 @@
+import { useState } from 'react';
+import { Map } from '../../components/map/map';
 import { OffersList } from '../../components/offers-list/offers-list';
-import { Offers } from '../../mocks/types';
+import { Offer, Offers } from '../../mocks/types';
 
 type MainPageProps = {
   cityOffersCount: number;
@@ -7,6 +9,8 @@ type MainPageProps = {
 }
 
 export function MainPage({offers, cityOffersCount}: MainPageProps): JSX.Element{
+  const [chosenId, setChosenId] = useState<Offer['id'] | null>(null);
+
   return(
     <div className="page page--gray page--main">
       <main className="page__main page__main--index">
@@ -67,10 +71,10 @@ export function MainPage({offers, cityOffersCount}: MainPageProps): JSX.Element{
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <OffersList offers={offers}/>
+              <OffersList offers={offers} setChosenId={setChosenId} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map chosenId={chosenId} offers={offers} city={offers[0].city}/>
             </div>
           </div>
         </div>
