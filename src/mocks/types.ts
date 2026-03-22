@@ -15,6 +15,18 @@ export type Host = {
   isPro: boolean;
 };
 
+export type Offer = OfferBase & {
+  previewImage?: string;
+  description?: string;
+  bedrooms?: number;
+  goods?: string[];
+  host?: Host;
+  images?: string[];
+  maxAdults?: number;
+};
+
+export type Offers = Offer[];
+
 type Type = 'hotel' | 'room' | 'apartment' | 'house';
 
 type OfferBase = {
@@ -28,15 +40,3 @@ type OfferBase = {
   isPremium: boolean;
   rating: number;
 };
-
-export type Offer = OfferBase & {
-  previewImage?: string;
-  description?: string;
-  bedrooms?: number;
-  goods?: string[];
-  host?: Host;
-  images?: string[];
-  maxAdults?: number;
-};
-
-export type Offers = Offer[];

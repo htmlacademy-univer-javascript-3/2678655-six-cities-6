@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, generatePath } from 'react-router-dom';
 import { Offer } from '../../mocks/types';
 import { AppRoute } from '../../const/const';
 
@@ -15,7 +15,7 @@ export function OfferCard({offer, onMouseEnter, onMouseLeave}: PlaceCardProps): 
     <article className="cities__card place-card" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         {isPremium && <div className="place-card__mark"><span>Premium</span></div>}
-        <Link to={`${AppRoute.Offer}/${id}`}>
+        <Link to={generatePath(AppRoute.Offer, { offerId: id })}>
           <img className="place-card__image" src={previewImage} width="260" height="200" alt={city.name} />
         </Link>
       </div>
@@ -39,7 +39,7 @@ export function OfferCard({offer, onMouseEnter, onMouseLeave}: PlaceCardProps): 
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`${AppRoute.Offer}/${id}`}>
+          <Link to={generatePath(AppRoute.Offer, { offerId: id })}>
             {title}
           </Link>
         </h2>
