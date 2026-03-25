@@ -1,5 +1,5 @@
 import { Navigate, useParams } from 'react-router-dom';
-import { Offer, Offers } from '../../mocks/types';
+import { Offer } from '../../mocks/types';
 import { AppRoute } from '../../const/const';
 import { ReviewForm } from '../../components/review-form/review-form';
 import { ReviewsList } from '../../components/reviews-list/reviews-list';
@@ -10,14 +10,14 @@ import { Map } from '../../components/map/map';
 import { useState } from 'react';
 import { OffersList } from '../../components/offers-list/offers-list';
 import { getRatingWidth } from '../../utils/getRatingWidth';
+import { useSelector } from 'react-redux';
+import { getOffers } from '../../store/selectors';
 
-type OfferPageProps = {
-  offers: Offers;
-};
 
-export function OfferPage({ offers }: OfferPageProps): JSX.Element {
+export function OfferPage(): JSX.Element {
   const {offerId} = useParams();
   const [chosenId, setChosenId] = useState<Offer['id'] | null>(null);
+  const offers = useSelector(getOffers);
   const currentOffer = offers.find((offer) => offer.id === offerId);
 
   if (!currentOffer) {

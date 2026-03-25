@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { mockOffersList } from "../mocks/mockOffersList";
-import { changeCity, setOffers } from "./action";
+import { setCity, setOffers } from "./action";
 import { Offers } from "../mocks/types";
 
 type InitialState = {
@@ -15,7 +15,7 @@ const initialState: InitialState = {
 
 export const reducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(changeCity,(state, action) => {
+    .addCase(setCity,(state, action) => {
       state.city = action.payload
     })
     .addCase(setOffers,(state, action) => {
