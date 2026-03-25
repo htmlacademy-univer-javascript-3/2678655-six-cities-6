@@ -15,6 +15,7 @@ import { getOffers } from '../../store/selectors';
 import { OfferGalary } from '../../ui/offer-galllery/offer-gallery';
 import cn from 'classnames';
 import { OfferMark } from '../../ui/offer-mark/offer-mark';
+import InsideList from '../../ui/inside-list/inside-list';
 
 
 export function OfferPage(): JSX.Element {
@@ -80,13 +81,7 @@ export function OfferPage(): JSX.Element {
 
               <div className="offer__inside">
                 <Heading tag="h2" className="offer__inside-title">What`s inside</Heading>
-                <ul className="offer__inside-list">
-                  {currentOffer.goods?.map((good) => (
-                    <li key={good} className="offer__inside-item">
-                      {good}
-                    </li>
-                  ))}
-                </ul>
+                <InsideList goods={currentOffer.goods}/>
               </div>
 
               <div className="offer__host">
