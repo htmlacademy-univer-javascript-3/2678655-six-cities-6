@@ -19,7 +19,7 @@ export function StatusMark({
   }
 
   if (isPro) {
-    return <span className={`offer__user-status`}>Pro</span>;
+    return <span className={'offer__user-status'}>Pro</span>;
   }
 
   return null;
