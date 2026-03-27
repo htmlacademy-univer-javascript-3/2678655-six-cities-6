@@ -18,7 +18,7 @@ export function Sorting(): JSX.Element {
   const sortType = useSelector(getSortType);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const currentLabel = SORT_OPTIONS.find(option => option.type === sortType)?.label || 'Popular';
+  const currentLabel = SORT_OPTIONS.find((option) => option.type === sortType)?.label || 'Popular';
 
   return (
     <form className="places__sorting" action="#" method="get">
@@ -33,9 +33,7 @@ export function Sorting(): JSX.Element {
           <use xlinkHref="#icon-arrow-select"></use>
         </svg>
       </span>
-      <ul className={cn('places__options places__options--custom', {
-        'places__options--opened': isOpen
-      })}>
+      <ul className={cn('places__options places__options--custom', {'places__options--opened': isOpen})}>
         {SORT_OPTIONS.map(({ type, label }) => (
           <li
             key={type}

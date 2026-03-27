@@ -5,19 +5,23 @@ import { Offer } from '../../mocks/types';
 import { LocationsList } from '../../components/locations-list/locations-list';
 import { Heading } from '../../ui/heading/heading';
 import { useSelector } from 'react-redux';
-import { getCity, getOffers } from '../../store/selectors';
+import { getCity, getOffers, getSortType } from '../../store/selectors';
 import { Sorting } from '../../components/sorting/sorting';
+import { sortOffers } from '../../utils/sort-offers';
+import { SortType } from '../../components/sorting/types';
 
-
-export function MainPage(): JSX.Element{
+export function MainPage(): JSX.Element {
   const [chosenId, setChosenId] = useState<Offer['id'] | null>(null);
   const currentCity = useSelector(getCity);
+  const sortType = useSelector(getSortType);
   const offers = useSelector(getOffers);
-  const offersByCity = offers.filter((offer)=> offer.city.name === currentCity);
+
+  const offersByCity = offers.filter((offer) => offer.city.name === currentCity);
   const cityOffersCount = offersByCity.length;
   const currentCityCoordinates = offersByCity[0]?.city;
+  const sortedOffers = sortOffers(offersByCity, sortType as SortType);
 
-  return(
+  return (
     <div className="page page--gray page--main">
       <main className="page__main page__main--index">
         <Heading className="visually-hidden">Cities</Heading>
@@ -31,10 +35,12 @@ export function MainPage(): JSX.Element{
             <section className="cities__places places">
               <Heading tag='h2' className="visually-hidden">Places</Heading>
               <b className="places__found">
-                {cityOffersCount > 0 ? `${cityOffersCount} places  to stay in Amsterdam` : 'NET OTELEY BRO'}
+                {cityOffersCount > 0
+                  ? `${cityOffersCount} ${cityOffersCount === 1 ? 'place' : 'places'} to stay in ${currentCity}`
+                  : 'NET MEST BRO'}
               </b>
               {cityOffersCount > 0 && <Sorting />}
-              <OffersList offers={offersByCity} setChosenId={setChosenId} />
+              <OffersList offers={sortedOffers} setChosenId={setChosenId} />
             </section>
             <div className="cities__right-section">
               <Map

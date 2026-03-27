@@ -18,5 +18,5 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setSortType,(state, action) => {
       state.sortType = action.payload;
-    })
+    });
 });
