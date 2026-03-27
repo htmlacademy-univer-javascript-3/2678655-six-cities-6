@@ -16,6 +16,8 @@ import { OfferGalary } from '../../ui/offer-galllery/offer-gallery';
 import { StatusMark } from '../../ui/status-mark/status-mark';
 import { InsideList } from '../../ui/inside-list/inside-list';
 import cn from 'classnames';
+import { Button } from '../../ui/button/button';
+import { OfferFeatures } from '../../ui/offer-features/offer-features';
 
 
 export function OfferPage(): JSX.Element {
@@ -41,19 +43,20 @@ export function OfferPage(): JSX.Element {
               {currentOffer.isPremium && (<StatusMark isPremium/>)}
               <div className="offer__name-wrapper">
                 <Heading className="offer__name">{currentOffer.title}</Heading>
-                <button
-                  className={cn('offer__bookmark-button button',
-                    {'offer__bookmark-button--active' : currentOffer.isFavorite}
-                  )}
-                  type="button"
+                <Button
+                  className={cn('offer__bookmark-button button', {
+                    'offer__bookmark-button--active': currentOffer.isFavorite
+                  })}
                 >
-                  <svg className="offer__bookmark-icon" width="31" height="33">
-                    <use xlinkHref="#icon-bookmark" />
-                  </svg>
-                  <span className="visually-hidden">
-                    {currentOffer.isFavorite ? 'In bookmarks' : 'To bookmarks'}
-                  </span>
-                </button>
+                  <>
+                    <svg className="offer__bookmark-icon" width="31" height="33">
+                      <use xlinkHref="#icon-bookmark" />
+                    </svg>
+                    <span className="visually-hidden">
+                      {currentOffer.isFavorite ? 'In bookmarks' : 'To bookmarks'}
+                    </span>
+                  </>
+                </Button>
               </div>
 
               <div className="offer__rating rating">
@@ -64,15 +67,11 @@ export function OfferPage(): JSX.Element {
                 <span className="offer__rating-value rating__value">{currentOffer.rating}</span>
               </div>
 
-              <ul className="offer__features">
-                <li className="offer__feature offer__feature--entire">{currentOffer.type}</li>
-                <li className="offer__feature offer__feature--bedrooms">
-                  {currentOffer.bedrooms} Bedrooms
-                </li>
-                <li className="offer__feature offer__feature--adults">
-                  Max {currentOffer.maxAdults} adults
-                </li>
-              </ul>
+              <OfferFeatures
+                type={currentOffer.type}
+                bedrooms={currentOffer.bedrooms}
+                maxAdults={currentOffer.maxAdults}
+              />
 
               <div className="offer__price">
                 <b className="offer__price-value">€{currentOffer.price}</b>

@@ -1,3 +1,4 @@
+import { Button } from '../../ui/button/button';
 import { Heading } from '../../ui/heading/heading';
 
 export function LoginPage(): JSX.Element{
@@ -16,7 +17,7 @@ export function LoginPage(): JSX.Element{
                 <label className="visually-hidden">Password</label>
                 <input className="login__input form__input" type="password" name="password" placeholder="Password" required/>
               </div>
-              <button className="login__submit form__submit button" type="submit">Sign in</button>
+              <Button className="login__submit form__submit button" type="submit">Sign in</Button>
             </form>
           </section>
           <section className="locations locations--login locations--current">

@@ -5,6 +5,7 @@ import { Heading } from '../../ui/heading/heading';
 import { getRatingWidth } from '../../utils/getRatingWidth';
 import { StatusMark } from '../../ui/status-mark/status-mark';
 import cn from 'classnames';
+import { Button } from '../../ui/button/button';
 
 type OfferCardProps = {
   offer: Offer | OfferNearby;
@@ -55,20 +56,20 @@ export function OfferCard({
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/ night</span>
           </div>
-
-          <button
+          <Button
             className={cn('place-card__bookmark-button', 'button', {
               'place-card__bookmark-button--active': isFavorite
             })}
-            type="button"
           >
-            <svg className="place-card__bookmark-icon" width={18} height={19}>
-              <use xlinkHref="#icon-bookmark" />
-            </svg>
-            <span className="visually-hidden">
-              {isFavorite ? 'In bookmarks' : 'To bookmarks'}
-            </span>
-          </button>
+            <>
+              <svg className="place-card__bookmark-icon" width={18} height={19}>
+                <use xlinkHref="#icon-bookmark" />
+              </svg>
+              <span className="visually-hidden">
+                {isFavorite ? 'In bookmarks' : 'To bookmarks'}
+              </span>
+            </>
+          </Button>
         </div>
 
         <div className="place-card__rating rating">
