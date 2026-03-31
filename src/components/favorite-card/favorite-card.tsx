@@ -5,6 +5,7 @@ import { AppRoute } from '../../const/const';
 import { getRatingWidth } from '../../utils/getRatingWidth';
 import cn from 'classnames';
 import { StatusMark } from '../../ui/status-mark/status-mark';
+import { Button } from '../../ui/button/button';
 
 type FavoriteCardProps = {
   offer: Offer;
@@ -14,7 +15,6 @@ export function FavoriteCard({offer}: FavoriteCardProps): JSX.Element {
   return (
     <article className="favorites__card place-card">
       {offer.isPremium && <StatusMark variant='place-card' isPremium/>}
-
       <div className="favorites__image-wrapper place-card__image-wrapper">
         <Link to={generatePath(AppRoute.Offer, { offerId: offer.id })}>
           <img
@@ -32,10 +32,9 @@ export function FavoriteCard({offer}: FavoriteCardProps): JSX.Element {
             <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button
+          <Button
             className={cn('place-card__bookmark-button', 'button',
               {'place-card__bookmark-button--active': offer.isFavorite})}
-            type="button"
           >
             <svg className="place-card__bookmark-icon"
               width="18"
@@ -46,7 +45,7 @@ export function FavoriteCard({offer}: FavoriteCardProps): JSX.Element {
             <span className="visually-hidden">
               {offer.isFavorite ? 'In bookmarks' : 'To bookmarks'}
             </span>
-          </button>
+          </Button>
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">

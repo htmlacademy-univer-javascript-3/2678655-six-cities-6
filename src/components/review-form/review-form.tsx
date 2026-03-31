@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from 'react';
+import { Button } from '../../ui/button/button';
 
 type FormData = {
   rating: number;
@@ -82,7 +83,7 @@ export function ReviewForm(): JSX.Element {
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay
           with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
-        <button className="reviews__submit form__submit button" type="submit" disabled>Submit</button>
+        <Button className="reviews__submit form__submit button" type="submit" disabled>Submit</Button>
       </div>
     </form>
   );
