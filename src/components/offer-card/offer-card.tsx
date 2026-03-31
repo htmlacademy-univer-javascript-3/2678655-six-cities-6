@@ -61,14 +61,12 @@ export function OfferCard({
               'place-card__bookmark-button--active': isFavorite
             })}
           >
-            <>
-              <svg className="place-card__bookmark-icon" width={18} height={19}>
-                <use xlinkHref="#icon-bookmark" />
-              </svg>
-              <span className="visually-hidden">
-                {isFavorite ? 'In bookmarks' : 'To bookmarks'}
-              </span>
-            </>
+            <svg className="place-card__bookmark-icon" width={18} height={19}>
+              <use xlinkHref="#icon-bookmark" />
+            </svg>
+            <span className="visually-hidden">
+              {isFavorite ? 'In bookmarks' : 'To bookmarks'}
+            </span>
           </Button>
         </div>
 

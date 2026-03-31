@@ -48,14 +48,12 @@ export function OfferPage(): JSX.Element {
                     'offer__bookmark-button--active': currentOffer.isFavorite
                   })}
                 >
-                  <>
-                    <svg className="offer__bookmark-icon" width="31" height="33">
-                      <use xlinkHref="#icon-bookmark" />
-                    </svg>
-                    <span className="visually-hidden">
-                      {currentOffer.isFavorite ? 'In bookmarks' : 'To bookmarks'}
-                    </span>
-                  </>
+                  <svg className="offer__bookmark-icon" width="31" height="33">
+                    <use xlinkHref="#icon-bookmark" />
+                  </svg>
+                  <span className="visually-hidden">
+                    {currentOffer.isFavorite ? 'In bookmarks' : 'To bookmarks'}
+                  </span>
                 </Button>
               </div>
 

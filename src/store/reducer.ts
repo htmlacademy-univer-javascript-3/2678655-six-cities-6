@@ -1,10 +1,18 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { mockOffersList } from '../mocks/mockOffersList';
 import { setCity, setOffers, setSortType } from './action';
+import { SortType } from '../components/sorting/types';
+import { Offers } from '../mocks/types';
 
-const initialState = {
+type initialStateProps ={
+  city: string;
+  sortType: SortType;
+  offers: Offers;
+}
+
+const initialState : initialStateProps = {
   city: 'Paris',
-  sortType: 'Popular',
+  sortType: 'popular',
   offers: mockOffersList,
 };
 

@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import { getCity, getOffers, getSortType } from '../../store/selectors';
 import { Sorting } from '../../components/sorting/sorting';
 import { sortOffers } from '../../utils/sort-offers';
-import { SortType } from '../../components/sorting/types';
 
 export function MainPage(): JSX.Element {
   const [chosenId, setChosenId] = useState<Offer['id'] | null>(null);
@@ -19,7 +18,7 @@ export function MainPage(): JSX.Element {
   const offersByCity = offers.filter((offer) => offer.city.name === currentCity);
   const cityOffersCount = offersByCity.length;
   const currentCityCoordinates = offersByCity[0]?.city;
-  const sortedOffers = sortOffers(offersByCity, sortType as SortType);
+  const sortedOffers = sortOffers(offersByCity, sortType);
 
   return (
     <div className="page page--gray page--main">
