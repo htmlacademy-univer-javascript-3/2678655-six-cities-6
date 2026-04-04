@@ -1,4 +1,4 @@
-import { AppRoute, AuthorizationStatus } from '../../const/const';
+import { AppRoute } from '../../const/const';
 import { MainPage } from '../../pages/main-page/main-page';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { NotFoundPage } from '../../pages/not-found-page/not-found-page';
@@ -8,8 +8,12 @@ import { OfferPage } from '../../pages/offer-page/offer-page';
 import { PrivateRoute } from '../private-route/private-route';
 import { MainLayout } from '../layouts/main-layout/main-layout';
 import { AuthLayout } from '../layouts/auth-layout/auth-layout';
+import { useAppSelector } from '../../hooks';
+import { getAuthStatus } from '../../store/selectors';
 
 export function App(): JSX.Element {
+  const authorizationStatus = useAppSelector(getAuthStatus);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -22,7 +26,7 @@ export function App(): JSX.Element {
           <Route
             path={AppRoute.Favorites}
             element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <PrivateRoute>
                 <FavoritesPage/>
               </PrivateRoute>
             }

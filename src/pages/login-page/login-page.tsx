@@ -1,7 +1,12 @@
+import { AuthorizationStatus } from '../../const/const';
+import { useAppSelector } from '../../hooks';
+import { getAuthStatus } from '../../store/selectors';
 import { Button } from '../../ui/button/button';
 import { Heading } from '../../ui/heading/heading';
 
 export function LoginPage(): JSX.Element{
+  const authorizationStatus = useAppSelector(getAuthStatus);
+
   return(
     <div className="page page--gray page--login">
       <main className="page__main page__main--login">
