@@ -1,4 +1,4 @@
-import { AppRoute, AuthorizationStatus } from '../../const/const';
+import { AppRoute } from '../../const/const';
 import { MainPage } from '../../pages/main-page/main-page';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { NotFoundPage } from '../../pages/not-found-page/not-found-page';
@@ -22,7 +22,7 @@ export function App(): JSX.Element {
           <Route
             path={AppRoute.Favorites}
             element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <PrivateRoute>
                 <FavoritesPage/>
               </PrivateRoute>
             }
