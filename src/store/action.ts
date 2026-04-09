@@ -1,14 +1,24 @@
 import { createAction } from '@reduxjs/toolkit';
-import { Offers } from '../mocks/types';
-import { SortType } from '../components/sorting/types';
-import { AuthorizationStatus } from '../const/const';
+import { SortType } from '../features/offers/types';
+import { Offer, OfferNearbyList, Offers, Reviews } from '../shared/types';
+import { AuthorizationStatus } from '../const';
 
 export const setCity = createAction<string>('city/setCity');
-export const setOffers = createAction<Offers>('offers/setOffers');
 export const setSortType = createAction<SortType>('sort/setSortType');
 
+export const setOffers = createAction<Offers>('offers/setOffers');
 export const loadOffers = createAction<Offers>('data/loadOffers');
 export const setOffersDataLoadingStatus = createAction<boolean>('data/setOffersDataLoadingStatus');
+
+export const loadOffer = createAction<Offer>('data/loadOffer');
+export const setOfferDataLoadingStatus = createAction<boolean>('data/setOfferDataLoadingStatus');
+export const redirectToErrorPage = createAction('app/redirectToErrorPage');
+
+export const loadNearbyOffers = createAction<OfferNearbyList>('data/loadNearbyOffers');
+
+export const loadReviews = createAction<Reviews>('data/loadReviews');
+export const setReviewsDataLoadingStatus = createAction<boolean>('data/setReviewsDataLoadingStatus');
+
 
 export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
 export const setEmail = createAction<string>('user/setEmail');
