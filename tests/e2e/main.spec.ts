@@ -1,14 +1,5 @@
+import { MainPage } from "../../src/features/offers/page/mainPage";
 import { test, expect } from '@playwright/test';
-import { AuthPage } from '../src/features/auth/page/authPage';
-import { MainPage } from '../src/features/offers/page/mainPage';
-
-
-test('Успешный логин', async ({ page }) => {
-  const loginPage = new AuthPage(page);
-  await loginPage.load();
-
-  await loginPage.login('egor.osipchuk2004@gmail.com', 'password123');
-});
 
 test('Проверка сортировки', async ({ page }) => {
   const mainPage = new MainPage(page);

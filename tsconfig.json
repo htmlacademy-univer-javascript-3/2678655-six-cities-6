@@ -21,6 +21,6 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
   },
-  "include": ["src", "vite.config.ts", "playwright,congif.ts", "tests"],
+  "include": ["src", "vite.config.ts", "playwright,congif.ts", "e2e"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
