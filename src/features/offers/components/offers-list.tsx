@@ -1,9 +1,8 @@
-
+import { memo } from 'react';
 import { OfferNearbyList, Offers } from '../../../shared/types';
 import { FavoriteCard } from '../../favorites';
 import { PageCategoryType } from '../types';
 import { OfferCard } from './offer-card';
-
 
 type OffersListProps = {
   offers: Offers | OfferNearbyList;
@@ -11,17 +10,24 @@ type OffersListProps = {
   setChosenId?: (id: string | null) => void;
 };
 
-export function OffersList({
+export const OffersList = memo(({
   offers,
   variant = 'cities',
   setChosenId
-}: OffersListProps): JSX.Element {
-
+}: OffersListProps): JSX.Element => {
   const containerClassName = {
     cities: 'cities__places-list places__list tabs__content',
     favorites: 'favorites__places',
     nearPlaces: 'near-places__list places__list'
   }[variant];
+
+  const handleMouseEnter = (id: string) => {
+    setChosenId?.(id);
+  };
+
+  const handleMouseLeave = () => {
+    setChosenId?.(null);
+  };
 
   if (variant === 'favorites') {
     return (
@@ -43,10 +49,12 @@ export function OffersList({
           key={offer.id}
           offer={offer}
           variant={variant === 'cities' ? 'cities' : 'near-places'}
-          onMouseEnter={() => setChosenId?.(offer.id)}
-          onMouseLeave={() => setChosenId?.(null)}
+          onMouseEnter={() => handleMouseEnter(offer.id)}
+          onMouseLeave={handleMouseLeave}
         />
       ))}
     </div>
   );
-}
+});
+
+OffersList.displayName = 'OffersList';

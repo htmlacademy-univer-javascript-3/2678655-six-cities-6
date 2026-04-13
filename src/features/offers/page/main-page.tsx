@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Offer } from '../../../shared/types';
 import { useAppSelector } from '../../../shared/hooks';
 import { getCity, getOffers, getOffersLoadingStatus, getSortType } from '../../../store/selectors';
@@ -9,7 +9,6 @@ import { OffersList } from '../components/offers-list';
 import { Sorting } from '../components/sorting';
 import { Map } from '../../map';
 
-
 export function MainPage(): JSX.Element {
   const [chosenId, setChosenId] = useState<Offer['id'] | null>(null);
   const currentCity = useAppSelector(getCity);
@@ -17,15 +16,22 @@ export function MainPage(): JSX.Element {
   const offers = useAppSelector(getOffers);
   const isLoading = useAppSelector(getOffersLoadingStatus);
 
-  const offersByCity = offers.filter((offer: Offer) => offer.city.name === currentCity);
+  const offersByCity = useMemo(() =>
+    offers.filter((offer: Offer) => offer.city.name === currentCity),[offers, currentCity]);
+
   const cityOffersCount = offersByCity.length;
   const currentCityCoordinates = offersByCity[0]?.city || null;
-  const sortedOffers = sortOffers(offersByCity, sortType);
+
+  const sortedOffers = useMemo(() =>
+    sortOffers(offersByCity, sortType),[offersByCity, sortType]);
+
+  const handleSetChosenId = useCallback((id: string | null) => {
+    setChosenId(id);
+  }, []);
 
   if (isLoading) {
     return <Spinner />;
   }
-
 
   return (
     <div className="page page--gray page--main">
@@ -43,19 +49,24 @@ export function MainPage(): JSX.Element {
               <b className="places__found">
                 {cityOffersCount > 0
                   ? `${cityOffersCount} ${cityOffersCount === 1 ? 'place' : 'places'} to stay in ${currentCity}`
-                  : 'NET MEST BRO'}
+                  : 'No places to stay in this city'}
               </b>
               {cityOffersCount > 0 && <Sorting />}
-              <OffersList offers={sortedOffers} setChosenId={setChosenId} />
+              <OffersList
+                offers={sortedOffers}
+                setChosenId={handleSetChosenId}
+              />
             </section>
             <div className="cities__right-section">
-              {currentCityCoordinates &&
+              {currentCityCoordinates && (
                 <Map
+                  key={currentCity}
                   variant='cities'
                   chosenId={chosenId}
                   offers={offersByCity}
                   city={currentCityCoordinates}
-                />}
+                />
+              )}
             </div>
           </div>
         </div>

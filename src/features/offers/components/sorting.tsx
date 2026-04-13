@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getSortType } from '../../../store/selectors';
 import { setSortType } from '../../../store/action';
 import { useAppDispatch } from '../../../shared/hooks';
-import cn from 'classnames';
 import { SORT_OPTIONS } from '../../../const';
+import cn from 'classnames';
 
-export function Sorting(): JSX.Element {
+export const Sorting = memo((() => {
   const dispatch = useAppDispatch();
   const sortType = useSelector(getSortType);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,10 +23,10 @@ export function Sorting(): JSX.Element {
       >
         {currentLabel}
         <svg className="places__sorting-arrow" width="7" height="4">
-          <use xlinkHref="#icon-arrow-select"></use>
+          <use xlinkHref="#icon-arrow-select" />
         </svg>
       </span>
-      <ul className={cn('places__options places__options--custom', {'places__options--opened': isOpen})}>
+      <ul className={cn('places__options places__options--custom', { 'places__options--opened': isOpen })}>
         {SORT_OPTIONS.map(({ type, label }) => (
           <li
             key={type}
@@ -45,4 +45,6 @@ export function Sorting(): JSX.Element {
       </ul>
     </form>
   );
-}
+}));
+
+Sorting.displayName = 'Sorting';
