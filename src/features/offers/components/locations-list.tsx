@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { DEFAULT_LOCATIONS } from '../../../const';
 import { useAppDispatch } from '../../../shared/hooks';
 import { setCity } from '../../../store/action';
@@ -7,14 +8,13 @@ type LocationsListProps = {
   city: string;
 };
 
-export function LocationsList({city}: LocationsListProps): JSX.Element {
+export const LocationsList = memo(({ city }: LocationsListProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const handleCityClick = (cityName: string) => {
-    if (cityName === city){
-      return;
+    if (cityName !== city) {
+      dispatch(setCity(cityName));
     }
-    dispatch(setCity(cityName));
   };
 
   return (
@@ -37,4 +37,6 @@ export function LocationsList({city}: LocationsListProps): JSX.Element {
       ))}
     </ul>
   );
-}
+});
+
+LocationsList.displayName = 'LocationsList';
